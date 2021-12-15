@@ -13,19 +13,21 @@ public class StationsBean {
     private int available_bike_stands;
     private int available_bikes;
     private boolean status;
-    private long lat;
-    private long lng;
+    private double lat;
+    private double lng;
 
-    public StationsBean(String name) {
-        this.name = name;
-    }
-
-    public StationsBean(long id, String name, String address, int available_bike_stands, int available_bikes) {
-        this.id = id;
+    public StationsBean(String name, String address, int available_bike_stands, int available_bikes, boolean status, double lat, double lng) {
         this.name = name;
         this.address = address;
         this.available_bike_stands = available_bike_stands;
         this.available_bikes = available_bikes;
+        this.status = status;
+        this.lat = lat;
+        this.lng = lng;
+    }
+
+    public StationsBean(String name) {
+        this.name = name;
     }
 
     public StationsBean() {
@@ -71,7 +73,7 @@ public class StationsBean {
         this.available_bikes = availableBikes;
     }
 
-    public long getLat() {
+    public double getLat() {
         return lat;
     }
 
@@ -79,7 +81,7 @@ public class StationsBean {
         this.lat = lat;
     }
 
-    public long getLng() {
+    public double getLng() {
         return lng;
     }
 

@@ -29,6 +29,8 @@ dependencies {
     //Type de base de donnée (MySQL)
     runtimeOnly 'mysql:mysql-connector-java'
 
+    //tache recurrente
+    testImplementation 'org.awaitility:awaitility:3.1.2'
 }
 
 test {
