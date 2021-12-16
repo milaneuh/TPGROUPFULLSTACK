@@ -1,5 +1,6 @@
 package com.example.bikesstations;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import okhttp3.OkHttpClient;
@@ -32,5 +33,14 @@ public class OkHttpUtils {
         }
     }
 
+    public static String hashPass(String password){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(password);
+        return hashedPassword;
+    }
 
+    public static boolean verifUser(String login, String loginBDD, String password, String passwordBDD){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return ((login.equals(loginBDD)) && (passwordEncoder.matches(password, passwordBDD)));
+    }
 }
